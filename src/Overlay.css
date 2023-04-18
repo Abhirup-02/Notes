@@ -1,0 +1,76 @@
+.popup {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(26, 22, 22, 0.7);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 450ms;
+}
+
+.popup:target {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup-display {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup-content {
+  width: 28%;
+  height: 75%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 12px;
+  background: rgb(229, 237, 229);
+}
+
+.note-upper-overlay {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  overflow: hidden;
+  justify-content: space-between;
+  padding: 27px 20px;
+}
+
+.note-heading-overlay {
+  color: #855ff8;
+  font-size: 20px;
+  font-weight: 500;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.note-input-overlay {
+  background-color: transparent;
+  border: none;
+  color: #c55528;
+  height: 78%;
+  width: 99%;
+  padding: 20px;
+  font-size: 18px;
+  outline: none;
+}
+
+
+.update-overlay-btn{
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: none;
+  background: #1fd0b3;
+  color: white;
+  font-size: 14px;
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+}

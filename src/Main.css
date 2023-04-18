@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+.note-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 100px;
+  justify-items: center;
+}
+
+.recent {
+  font-size: 36px;
+  font-weight: 600;
+  color: #91a7ff;
+  letter-spacing: 0.8px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.all-notes{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 25px 50px;
+  padding: 20px 10px;
+}
+
+.note {
+  color: #eebefa;
+  border: 2px solid #d0bfff;
+  border-radius: 10px;
+  width: 216px;
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+}
+
+.note-upper {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  padding: 9px 12px;
+}
+
+.note-heading {
+  color: #c8b6fd;
+  font-size: 15px;
+}
+
+.note-content {
+  color: #e8e0fe;
+  height: calc(100% - 36px);
+  cursor: pointer;
+  padding: 9px 12px;
+  font-size: 13px;
+}
+
+.material-symbols-sharp {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+  font-size: 18px;
+  color: #fb6363;
+  cursor: pointer;
+}
+
+.note-input {
+  background-color: transparent;
+  border: none;
+  color: #e8e0fe;
+  height: 100%;
+}

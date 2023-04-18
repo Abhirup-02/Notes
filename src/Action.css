@@ -1,0 +1,21 @@
+.action-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+  }
+  .action {
+    background: #18ae81;
+    border-radius: 6px;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 5px 10px;
+  }
+  .action-delete {
+    background: #eb4e4e;
+  }
+  

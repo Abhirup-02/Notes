@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0");
+
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  justify-content: center;
+  width: 9%;
+}
+
+.note-text {
+  color: #8396e6;
+  margin: 0 auto;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.notes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #b197fc;
+  border: 1px solid #eebefa;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.note-heading-text {
+  font-weight: 400;
+  font-size: 16px;
+  color: #b4a4e4;
+}
+
+.material{
+  user-select: none;
+}
+
+.material:hover{
+  color: white;
+}
+
+.material-symbols-rounded {
+  color: yellow;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 40;
+  color: yellow;
+  font-size: 16px;
+  cursor: pointer;
+}
