@@ -21,7 +21,7 @@ export default function Overlay({ notes, setNotes, currentNoteId, title, setCurr
       id: currentNoteId,
       title: titleValue,
       content: textAreaValue,
-      starred: notes.find((note) => note.id == currentNoteId)?.starred || false
+      starred: notes.find((note) => note.id === currentNoteId)?.starred || false
     }
 
     if (isNew) {
@@ -30,7 +30,7 @@ export default function Overlay({ notes, setNotes, currentNoteId, title, setCurr
     }
     else {
       const starredNotes = notes.filter((note) => note.starred)
-      if (starredNotes.length != 0) {
+      if (starredNotes.length !== 0) {
         if (notes.some((note) => note.id === currentNoteId && note.starred)) {
           const temp = notes.filter((note) => note.id !== currentNoteId)
           temp.unshift(obj)
