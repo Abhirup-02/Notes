@@ -25,13 +25,29 @@ export default function Overlay({ notes, setNotes, currentNoteId, title, setCurr
     }
 
     if (isNew) {
-      arr = [obj, ...notes]
+      arr = [...notes, obj]
       setIsNew(false)
     }
     else {
-      const temp = notes.filter((el) => el.id !== currentNoteId)
-      temp.unshift(obj)
-      arr = temp
+      const starredNotes = notes.filter((note) => note.starred)
+      if (starredNotes.length != 0) {
+        if (notes.some((note) => note.id === currentNoteId && note.starred)) {
+          const temp = notes.filter((note) => note.id !== currentNoteId)
+          temp.unshift(obj)
+          arr = temp
+        }
+        else {
+          const temp = notes.filter((note) => note.id !== currentNoteId && !note.starred)
+          starredNotes.push(obj)
+          starredNotes.push(...temp)
+          arr = starredNotes
+        }
+      }
+      else {
+        const temp = notes.filter((note) => note.id !== currentNoteId)
+        temp.unshift(obj)
+        arr = temp
+      }
     }
     localStorage.setItem('allNotes', JSON.stringify(arr))
     setTextAreaValue()
