@@ -30,19 +30,24 @@ export default function Overlay({ notes, setNotes, currentNoteId, title, setCurr
     }
     else {
       const starredNotes = notes.filter((note) => note.starred)
+      /** if any of the note is starred */
       if (starredNotes.length !== 0) {
+        /** opened note is starred */
         if (notes.some((note) => note.id === currentNoteId && note.starred)) {
           const temp = notes.filter((note) => note.id !== currentNoteId)
           temp.unshift(obj)
           arr = temp
         }
+        /** opened note is not starred */
         else {
+          /** filter all the unstarred note except the selected one, push the modified selected note to starredNotes and then push rest of the notes */
           const temp = notes.filter((note) => note.id !== currentNoteId && !note.starred)
           starredNotes.push(obj)
           starredNotes.push(...temp)
           arr = starredNotes
         }
       }
+      /** none of the notes is starred */
       else {
         const temp = notes.filter((note) => note.id !== currentNoteId)
         temp.unshift(obj)
