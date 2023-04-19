@@ -46,7 +46,7 @@ export default function App() {
   const handleSearchChange = (e) => {
     setSearchText(e.target.value)
     clearTimeout(searchTimeout)
-    
+
     setSearchTimeout(
       setTimeout(() => {
         const searchResults = notes.filter((note) => {
@@ -71,26 +71,15 @@ export default function App() {
       <div className='main-section'>
         <Sidebar
           notes={notes}
-          star={star}
           setStar={setStar}
         />
-        {searchText ? (
-          <Main
-            notes={searchedResults}
-            setCurrentNoteId={setCurrentNoteId}
-            setPopup={setPopup}
-            setText={setText}
-            setTitle={setTitle}
-          />
-        ) : (
-          <Main
-            notes={notes}
-            setCurrentNoteId={setCurrentNoteId}
-            setPopup={setPopup}
-            setText={setText}
-            setTitle={setTitle}
-          />
-        )}
+        <Main
+          notes={searchText ? searchedResults : notes}
+          setCurrentNoteId={setCurrentNoteId}
+          setPopup={setPopup}
+          setText={setText}
+          setTitle={setTitle}
+        />
       </div>
       <Action
         setCurrentNoteId={setCurrentNoteId}
