@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import './Overlay.css'
 
 
-export default function Overlay({ notes, setNotes, currentNoteId, title, setCurrentNoteId, popup, setPopup, text, setText }) {
+export default function Overlay({ notes, currentNoteId, title, popup, text }) {
 
   const [textAreaValue, setTextAreaValue] = useState()
   const [titleValue, setTitleValue] = useState()

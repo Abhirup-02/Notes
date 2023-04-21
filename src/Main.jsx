@@ -1,6 +1,6 @@
 import './Main.css'
 
-export default function Main({ notes, currentNoteId, setCurrentNoteId, popup, setPopup, setText, setTitle }) {
+export default function Main({ notes, setCurrentNoteId, setPopup, setText, setTitle }) {
 
 
   const handleClick = (e) => {
