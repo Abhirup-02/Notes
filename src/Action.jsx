@@ -1,7 +1,7 @@
 import './Action.css'
 
 
-export default function Action({ setCurrentNoteId, setPopup, setIsNew }) {
+export default function Action({ setCurrentNoteId, setPopup }) {
 
   const idGeneration = () => {
     let generateId = new Date().getTime()
@@ -11,7 +11,6 @@ export default function Action({ setCurrentNoteId, setPopup, setIsNew }) {
   const addNote = () => {
     setCurrentNoteId(idGeneration())
     setPopup(true)
-    setIsNew(true)
   }
 
   return (

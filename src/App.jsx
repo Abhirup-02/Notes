@@ -20,7 +20,6 @@ export default function App() {
   const [notes, setNotes] = useState([])
   const [currentNoteId, setCurrentNoteId] = useState()
   const [popup, setPopup] = useState(false)
-  const [isNew, setIsNew] = useState(false)
   const [title, setTitle] = useState('')
   const [text, setText] = useState('')
   const [star, setStar] = useState(false)
@@ -84,7 +83,6 @@ export default function App() {
       <Action
         setCurrentNoteId={setCurrentNoteId}
         setPopup={setPopup}
-        setIsNew={setIsNew}
       />
       <Overlay
         notes={notes}
@@ -92,8 +90,6 @@ export default function App() {
         title={title}
         text={text}
         popup={popup}
-        isNew={isNew}
-        setIsNew={setIsNew}
       />
     </div>
   )

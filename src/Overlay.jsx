@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import './Overlay.css'
 
 
-export default function Overlay({ notes, setNotes, currentNoteId, title, setCurrentNoteId, popup, setPopup, isNew, setIsNew, text, setText }) {
+export default function Overlay({ notes, setNotes, currentNoteId, title, setCurrentNoteId, popup, setPopup, text, setText }) {
 
   const [textAreaValue, setTextAreaValue] = useState()
   const [titleValue, setTitleValue] = useState()
@@ -13,7 +13,7 @@ export default function Overlay({ notes, setNotes, currentNoteId, title, setCurr
   }, [text, title])
 
 
-  let arr
+  let arr = []
 
   const newNote = () => {
 
@@ -24,36 +24,28 @@ export default function Overlay({ notes, setNotes, currentNoteId, title, setCurr
       starred: notes.find((note) => note.id === currentNoteId)?.starred || false
     }
 
-    if (isNew) {
-      arr = [...notes, obj]
-      setIsNew(false)
+
+    if (obj.starred) {
+      const temp = notes.filter((note) => note.id !== currentNoteId)
+      temp.unshift(obj)
+      arr = temp
     }
     else {
-      const starredNotes = notes.filter((note) => note.starred)
-      /** if any of the note is starred */
-      if (starredNotes.length !== 0) {
-        /** opened note is starred */
-        if (notes.some((note) => note.id === currentNoteId && note.starred)) {
-          const temp = notes.filter((note) => note.id !== currentNoteId)
-          temp.unshift(obj)
-          arr = temp
+      arr.push(obj)
+      const arrTemp = []
+      notes.map((note) => {
+        if (note.id !== currentNoteId) {
+          if (note.starred) {
+            arrTemp.unshift(note)
+          }
+          else {
+            arr.push(note)
+          }
         }
-        /** opened note is not starred */
-        else {
-          /** filter all the unstarred note except the selected one, push the modified selected note to starredNotes and then push rest of the notes */
-          const temp = notes.filter((note) => note.id !== currentNoteId && !note.starred)
-          starredNotes.push(obj)
-          starredNotes.push(...temp)
-          arr = starredNotes
-        }
-      }
-      /** none of the notes is starred */
-      else {
-        const temp = notes.filter((note) => note.id !== currentNoteId)
-        temp.unshift(obj)
-        arr = temp
-      }
+      })
+      arrTemp.map((item) => arr.unshift(item))
     }
+
     localStorage.setItem('allNotes', JSON.stringify(arr))
     setTextAreaValue()
     setTitleValue()
